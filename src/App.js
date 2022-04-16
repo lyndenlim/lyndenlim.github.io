@@ -1,18 +1,19 @@
+import { Route, Routes } from "react-router-dom"
+import HomePage from "./HomePage"
+import About from "./About"
+import Projects from "./Projects"
+import Contact from "./Contact"
+
 function App() {
   return (
-    <div>
-      Lynden Lim 
-      <br/>
-      Row of buttons to take to "about, projects, skills, contact"
-      <br/>
-      About
-      <br/>
-      Projects
-      <br/>
-      Skills
-      <br/>
-      Contact
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects/>} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
   );
 }
 
