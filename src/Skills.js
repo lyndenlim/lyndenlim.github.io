@@ -51,7 +51,7 @@ function Skills() {
                 <br />
                 <span className="skill">CSS</span>
             </div>
-        </div >
+        </div>
 
     )
 }
