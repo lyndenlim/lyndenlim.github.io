@@ -21,7 +21,6 @@ code {
 
 .homepage-container,
 .about-container,
-.projects-container,
 .contact-container,
 .skills-container {
   height: 100vh;
@@ -63,9 +62,17 @@ code {
   text-align: left;
 }
 
-.contact-link,
-.project-link {
+.contact-link {
   font-size: 50px;
+  margin-right: 0.5em;
+}
+
+.contact-link-container {
+  margin-top: 2em;
+}
+
+.project-link {
+  font-size: 40px;
   margin-right: 0.5em;
 }
 
@@ -194,7 +201,7 @@ code {
   font-weight: 300;
   position: absolute;
   font-size: 16px;
-  margin-top: 17px;
+  margin-top: 12px;
   overflow: hidden;
   font-weight: bold;
 
@@ -289,4 +296,18 @@ code {
 
 .button-container {
   display: flex;
+}
+
+.project-container {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.project-image {
+  margin-bottom: 0.5em;
+}
+
+.project-content {
+  display: flex;
+  align-items: center;
 }

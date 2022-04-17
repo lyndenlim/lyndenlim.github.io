@@ -86,7 +86,7 @@ function Contact() {
                     <button type="submit">Send</button>
                 </form>
             </div>
-            <div style={{marginTop: "2em"}}>
+            <div className="contact-link-container">
                 <a className="contact-link linkedin" href="https://www.linkedin.com/in/lynden-lim-17b026118/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
                 <a className="contact-link github" href="https://github.com/lyndenlim" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
                 <a className=" contact-link resume" href="/#"><FontAwesomeIcon icon={faFileLines} /></a>
