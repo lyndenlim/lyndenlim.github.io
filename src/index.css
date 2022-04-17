@@ -27,9 +27,36 @@ code {
 .skill-image {
   height: 150px;
   width: fit-content;
-  
 }
 
 .skill {
   font-weight: bold;
+}
+
+.form-container {
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+}
+
+.contact-container {
+  text-align: center;
+}
+
+.contact-header {
+  text-align: left;
+}
+
+.contact-link {
+  font-size: 60px;
+  margin-right: 0.5em;
+}
+
+.linkedin {
+  color: #0b65c2;
+
+}
+
+.github {
+  color: black;
 }
