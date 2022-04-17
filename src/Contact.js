@@ -90,7 +90,7 @@ function Contact() {
             <div>
                 <a className="contact-link linkedin" href="https://www.linkedin.com/in/lynden-lim-17b026118/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
                 <a className="contact-link github" href="https://github.com/lyndenlim" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                <a className=" contact-link resume"><FontAwesomeIcon icon={faFileLines} /></a>
+                <a className=" contact-link resume" href="/#"><FontAwesomeIcon icon={faFileLines} /></a>
             </div>
 
             {showError ?
