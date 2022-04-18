@@ -9,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #81817f !important;
 }
 
 code {
@@ -28,6 +29,7 @@ code {
 
 .homepage-container,
 .about-container,
+.projects-container,
 .contact-container,
 .skills-container {
   height: 100vh;
@@ -83,24 +85,32 @@ code {
 }
 
 .contact-link-container {
-  // margin: auto;
   text-align: center;
   margin-top: 2em;
 }
 
 .project-link {
+  // margin-right: 1em;
   font-size: 40px;
-  margin-right: 0.5em;
+  text-decoration: none;
+  color: black !important;
+}
+
+.project-link:hover {
+  color: #0b65c2 !important;
+}
+
+.project-link-container {
+  text-align: center;
 }
 
 .linkedin {
   color: #0b65c2;
-
 }
 
 .github,
 .website {
-  color: black;
+  color: white;
 }
 
 .to-top-button {
@@ -356,20 +366,6 @@ code {
   display: flex;
 }
 
-.project-container {
-  margin-bottom: 2em;
-  text-align: center;
-}
-
-.project-image {
-  margin-bottom: 0.5em;
-}
-
-.project-content {
-  display: flex;
-  align-items: center;
-}
-
 .send-message-button {
   background-color: #222;
   border-radius: 4px;
@@ -397,6 +393,184 @@ code {
   touch-action: manipulation;
 }
 
-.projects-container {
-  margin-top: 2.5em;
+// .projects-container {
+//   margin-top: 2.5em;
+// }
+
+.options {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  min-width: 600px;
+  max-width: 900px;
+  width: 750px;
+  height: 500px;
+
+  .option {
+    position: relative;
+    overflow: hidden;
+    min-width: 60px;
+    margin: 10px;
+    background-size: auto 120%;
+    background-position: center;
+    cursor: pointer;
+    transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
+    &.active {
+      cursor: default;
+      flex-grow: 10000;
+      transform: scale(1);
+      max-width: 600px;
+      margin: 0px;
+      border-radius: 40px;
+      background-size: auto 100%;
+
+      .label {
+        bottom: 20px;
+        left: 20px;
+
+        .info>div {
+          left: 0px;
+          opacity: 1;
+        }
+      }
+    }
+
+    // &.active:hover {
+
+    //   .project-info {
+    //     height: 500px;
+    //     display: flex;
+    //     align-items: center;
+    //     color: white;
+    //     margin: auto;
+    //   }
+    // }
+
+    &:not(.active) {
+      opacity: 0.5;
+      flex-grow: 1;
+      border-radius: 30px;
+
+      .label {
+        bottom: 10px;
+        left: 10px;
+
+        .info>div {
+          left: 20px;
+          opacity: 0;
+        }
+      }
+    }
+
+    .label {
+      display: flex;
+      position: absolute;
+      right: 0px;
+      height: 40px;
+      transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
+      .icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-width: 40px;
+        max-width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        border: 0.5px solid black;
+        background-color: white;
+        color: var(--defaultBackground);
+      }
+
+      .info {
+        padding-right: 5px;
+        padding-left: 5px;
+        height: fit-content;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+        color: white;
+        text-align: left;
+        box-shadow: inset 0 0 75px black;
+
+        >div {
+          position: relative;
+          transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+        }
+
+        .main {
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+
+        .sub {
+          transition-delay: .1s;
+        }
+      }
+    }
+  }
+
+  // .project-info {
+  //   background-color: white;
+  //   display: none;
+  //   z-index: 1;
+  // }
+
+  .option:hover {
+    opacity: 1;
+  }
+}
+
+.more-container {
+  margin: auto;
+}
+
+.more-button {
+  background-color: black;
+  border: 0.5px solid black;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.25rem 0.8rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.more-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.more-button-container {
+  float: right;
+}
+
+.view-site-button {
+  background: transparent !important;
+  border: none !important;
+}
+
+.view-site-button:hover {
+  color: white
+}
+
+.carousel-image {
+  height: 400px !important;
 }

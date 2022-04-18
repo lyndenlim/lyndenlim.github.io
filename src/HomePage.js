@@ -58,8 +58,8 @@ function HomePage() {
                             <button onClick={scrollToAbout}>About</button>
                         </div>
                         <div className="projects-button-container">
-                            <span className="mas">Projects</span>
-                            <button onClick={scrollToProjects}>Projects</button>
+                            <span className="mas">Portfolio</span>
+                            <button onClick={scrollToProjects}>Portfolio</button>
                         </div>
                         <div className="skills-button-container">
                             <span className="mas">Skills</span>
