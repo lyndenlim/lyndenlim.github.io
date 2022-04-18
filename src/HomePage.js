@@ -5,7 +5,7 @@ import Projects from "./Projects"
 import Skills from "./Skills"
 import Contact from "./Contact"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowUpLong } from "@fortawesome/free-solid-svg-icons"
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 
 function HomePage() {
     const [showTopButton, setShowTopButton] = useState(false)
@@ -72,19 +72,23 @@ function HomePage() {
                     </div>
                 </div>
             </div>
+            <hr />
             <div className="about-container" name="about">
                 <About />
             </div>
+            <hr />
             <div className="projects-container" name="projects">
                 <Projects />
             </div>
+            <hr />
             <div className="skills-container" name="skills">
                 <Skills />
             </div>
+            <hr />
             <div className="contact-container" name="contact">
                 <Contact />
             </div>
-            {showTopButton ? <button className="back-to-top-position" onClick={() => Scroll.animateScroll.scrollToTop()}><FontAwesomeIcon icon={faArrowUpLong} /></button> : null}
+            {showTopButton ? <button className="to-top-button" onClick={() => Scroll.animateScroll.scrollToTop()}><FontAwesomeIcon icon={faArrowUp} /></button> : null}
         </>
     )
 }

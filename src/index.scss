@@ -1,3 +1,7 @@
+:root {
+  scroll-behavior: auto !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -99,11 +103,13 @@ code {
   color: black;
 }
 
-.back-to-top-button {
-  position: relative;
-}
-
-.back-to-top-position {
+.to-top-button {
+  background-color: #222;
+  color: white;
+  font-size: 25px;
+  width: 40px;
+  border-radius: 50%;
+  border-style: none;
   position: fixed;
   bottom: 40px;
   right: 40px;
@@ -372,7 +378,7 @@ code {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
@@ -389,4 +395,8 @@ code {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.projects-container {
+  margin-top: 2.5em;
 }
