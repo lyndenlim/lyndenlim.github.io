@@ -54,20 +54,20 @@ function HomePage() {
                     </div>
                     <div className="button-container">
                         <div className="about-button-container">
-                            <span className="mas">About</span>
-                            <button onClick={scrollToAbout}>About</button>
+                            <span className="mas">ABOUT</span>
+                            <button onClick={scrollToAbout}>ABOUT</button>
                         </div>
                         <div className="projects-button-container">
-                            <span className="mas">Portfolio</span>
-                            <button onClick={scrollToProjects}>Portfolio</button>
+                            <span className="mas">PORTFOLIO</span>
+                            <button onClick={scrollToProjects}>PORTFOLIO</button>
                         </div>
                         <div className="skills-button-container">
-                            <span className="mas">Skills</span>
-                            <button onClick={scrollToSkills}>Skills</button>
+                            <span className="mas">SKILLS</span>
+                            <button onClick={scrollToSkills}>SKILLS</button>
                         </div>
                         <div className="contact-button-container">
-                            <span className="mas">Contact</span>
-                            <button onClick={scrollToContact}>Contact</button>
+                            <span className="mas">CONTACT</span>
+                            <button onClick={scrollToContact}>CONTACT</button>
                         </div>
                     </div>
                 </div>

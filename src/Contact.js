@@ -91,7 +91,7 @@ function Contact() {
                     </div>
 
                     <br />
-                    <button className="send-message-button" type="submit">Send &nbsp;<FontAwesomeIcon icon={faPaperPlane} /></button>
+                    <button className="send-message-button" type="submit">SEND &nbsp;<FontAwesomeIcon icon={faPaperPlane} /></button>
                 </form>
             </div>
             <div className="contact-link-container">
