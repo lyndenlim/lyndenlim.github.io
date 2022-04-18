@@ -48,7 +48,10 @@ function HomePage() {
         <>
             <div className="homepage-container">
                 <div >
-                    <h1 id="name">Lynden Lim</h1>
+                    <div className="info-container">
+                        <h1 id="name">Lynden Lim</h1>
+                        <h3>Fullstack Developer</h3>
+                    </div>
                     <div className="button-container">
                         <div className="about-button-container">
                             <span className="mas">About</span>
