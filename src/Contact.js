@@ -3,7 +3,8 @@ import { send } from "@emailjs/browser"
 import { ToastContainer, toast } from 'react-toastify';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { faFileLines } from "@fortawesome/free-solid-svg-icons"
+import { faFileLines, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+import Form from "react-bootstrap/Form"
 
 function Contact() {
     const [name, setName] = useState("")
@@ -67,23 +68,30 @@ function Contact() {
     }
 
     return (
-        <div>
-            <div className="form-container">
+        <div >
+            <div className="form-container" >
                 <div className="contact-header">
-                    Get in touch
+                    Contact Me
                 </div>
                 <form onSubmit={sendEmail}>
-                    Name
-                    <input required autoComplete="new-password" value={name} onChange={e => setName(e.target.value)} />
-                    Email
-                    <input required autoComplete="new-password" value={email} type="email" onChange={e => setEmail(e.target.value)} />
+                    <div className="row">
+                        <div className="col-6 contact-input">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control required autoComplete="new-password" value={name} onChange={e => setName(e.target.value)} />
+                        </div>
+                        <div className="col-6 contact-input">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control required autoComplete="new-password" value={email} type="email" onChange={e => setEmail(e.target.value)} />
+                        </div>
+                    </div>
                     <br />
+                    <div className="contact-input">
+                        <Form.Label>Message</Form.Label>
+                        <Form.Control as="textarea" style={{ height: "200px" }} required autoComplete="new-password" value={message} onChange={e => setMessage(e.target.value)} />
+                    </div>
+
                     <br />
-                    Message
-                    <textarea required autoComplete="new-password" value={message} onChange={e => setMessage(e.target.value)} />
-                    <br />
-                    <br />
-                    <button type="submit">Send</button>
+                    <button className="send-message-button" type="submit">Send &nbsp;<FontAwesomeIcon icon={faPaperPlane} /></button>
                 </form>
             </div>
             <div className="contact-link-container">
