@@ -13,43 +13,35 @@ function Skills() {
         <div className="skill-container">
             <div className="skill-image-container">
                 <img className="skill-image" src={react} alt="react" />
-                <br />
-                <span className="skill">React</span>
+                <div className="skill">React</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={python} alt="python" />
-                <br />
-                <span className="skill">Python</span>
+                <div className="skill">Python</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={ruby} alt="ruby" />
-                <br />
-                <span className="skill">Ruby</span>
+                <div className="skill">Ruby</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={postgresql} alt="postgresql" />
-                <br />
-                <span className="skill">PostgreSQL</span>
+                <div className="skill">PostgreSQL</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={git} alt="git" />
-                <br />
-                <span className="skill">GIT</span>
+                <div className="skill">GIT</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={javascript} alt="javascript" />
-                <br />
-                <span className="skill">JavaScript</span>
+                <div className="skill">JavaScript</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={html} alt="html" />
-                <br />
-                <span className="skill">HTML</span>
+                <div className="skill">HTML</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={css} alt="css" />
-                <br />
-                <span className="skill">CSS</span>
+                <div className="skill">CSS</div>
             </div>
         </div>
 
