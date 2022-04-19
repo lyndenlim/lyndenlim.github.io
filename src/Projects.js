@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import { faLink } from "@fortawesome/free-solid-svg-icons"
+import { faDesktop } from "@fortawesome/free-solid-svg-icons"
 import undecided1 from "./images/undecided1.png"
 import undecided2 from "./images/undecided2.png"
 import undecided3 from "./images/undecided3.png"
@@ -106,7 +106,9 @@ function Projects() {
                         <a className="project-link github" href="https://github.com/lyndenlim/undecided" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
                         &nbsp;
                         &nbsp;
-                        <a className="project-link website" href="https://undecided-application.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLink} /></a>
+                        &nbsp;
+                        &nbsp;
+                        <a className="project-link website" href="https://undecided-application.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
                     </div>
                 </Modal.Body>
             </Modal>
@@ -128,7 +130,9 @@ function Projects() {
                         <a className="project-link github" href="https://github.com/lyndenlim/schema" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
                         &nbsp;
                         &nbsp;
-                        <a className="project-link website" href="https://schema-project.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLink} /></a>
+                        &nbsp;
+                        &nbsp;
+                        <a className="project-link website" href="https://schema-project.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
                     </div>
                 </Modal.Body>
             </Modal>
@@ -150,7 +154,9 @@ function Projects() {
                         <a className="project-link github" href="https://github.com/lyndenlim/hurdle" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
                         &nbsp;
                         &nbsp;
-                        <a className="project-link website" href="https://lyndenlim.github.io/hurdle/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLink} /></a>
+                        &nbsp;
+                        &nbsp;
+                        <a className="project-link website" href="https://lyndenlim.github.io/hurdle/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
                     </div>
                 </Modal.Body>
             </Modal>

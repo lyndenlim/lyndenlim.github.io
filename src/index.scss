@@ -4,10 +4,10 @@
 
 body {
   margin: 0;
-  font-family: 'Cuprum', sans-serif !important;
+  font-family: 'Mukta', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #525E75 !important;
+  background-color: #78938A !important;
 }
 
 code {
@@ -19,9 +19,11 @@ code {
   margin-top: 0;
   padding: 0;
   font-size: 100px;
+  font-weight: bold;
 }
 
 .info-container {
+  cursor: default;
   margin-bottom: 1.5em;
 }
 
@@ -56,6 +58,7 @@ code {
 }
 
 .skill {
+  cursor: default;
   margin-top: 1em;
   font-size: 20px;
   font-weight: bold;
@@ -67,6 +70,7 @@ code {
 }
 
 .contact-header {
+  cursor: default;
   font-weight: bold;
   font-size: 36px;
   text-align: left;
@@ -252,7 +256,7 @@ code {
 }
 
 
-.mas {
+.mask {
   position: absolute;
   color: #000;
   text-align: center;
@@ -560,4 +564,45 @@ code {
 
 .carousel-image {
   height: 400px !important;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+nav .container {
+  width: 90%;
+  max-width: 1000px;
+  text-align: center;
+}
+
+nav .container ul li {
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+nav .container ul li.active {
+  background-color: slategray;
+  transition: 0.3 ease background-color;
+  color: white;
+}
+
+.about:hover,
+.projects:hover,
+.skills:hover,
+.contact:hover {
+  color: #4c6ff5;
+  cursor: pointer;
+}
+
+.about-content {
+  text-align: left;
+  font-size: 24px;
+  width: 1100px;
 }
