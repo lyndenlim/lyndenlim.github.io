@@ -104,10 +104,6 @@ function Projects() {
                     <br />
                     <div className="project-link-container">
                         <a className="project-link github" href="https://github.com/lyndenlim/undecided" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
                         <a className="project-link website" href="https://undecided-application.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
                     </div>
                 </Modal.Body>
@@ -128,10 +124,6 @@ function Projects() {
                     <br />
                     <div className="project-link-container">
                         <a className="project-link github" href="https://github.com/lyndenlim/schema" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
                         <a className="project-link website" href="https://schema-project.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
                     </div>
                 </Modal.Body>
@@ -152,10 +144,6 @@ function Projects() {
                     <br />
                     <div className="project-link-container">
                         <a className="project-link github" href="https://github.com/lyndenlim/hurdle" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
                         <a className="project-link website" href="https://lyndenlim.github.io/hurdle/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
                     </div>
                 </Modal.Body>

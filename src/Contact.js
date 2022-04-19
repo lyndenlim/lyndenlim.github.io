@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faFileLines, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import Form from "react-bootstrap/Form"
+import FloatingLabel from "react-bootstrap/FloatingLabel"
 
 function Contact() {
     const [name, setName] = useState("")
@@ -76,18 +77,21 @@ function Contact() {
                 <form onSubmit={sendEmail}>
                     <div className="row">
                         <div className="col-6 contact-input">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control required autoComplete="new-password" value={name} onChange={e => setName(e.target.value)} />
+                            <FloatingLabel label="Name">
+                                <Form.Control placeholder="Name" required autoComplete="new-password" value={name} onChange={e => setName(e.target.value)} />
+                            </FloatingLabel>
                         </div>
                         <div className="col-6 contact-input">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control required autoComplete="new-password" value={email} type="email" onChange={e => setEmail(e.target.value)} />
+                            <FloatingLabel label="Email">
+                                <Form.Control placeholder="Email" required autoComplete="new-password" value={email} type="email" onChange={e => setEmail(e.target.value)} />
+                            </FloatingLabel>
                         </div>
                     </div>
                     <br />
                     <div className="contact-input">
-                        <Form.Label>Message</Form.Label>
-                        <Form.Control as="textarea" style={{ height: "200px" }} required autoComplete="new-password" value={message} onChange={e => setMessage(e.target.value)} />
+                        <FloatingLabel label="Message">
+                            <Form.Control placeholder="Message" as="textarea" style={{ height: "200px" }} required autoComplete="new-password" value={message} onChange={e => setMessage(e.target.value)} />
+                        </FloatingLabel>
                     </div>
 
                     <br />
@@ -96,7 +100,7 @@ function Contact() {
             </div>
             <div className="contact-link-container">
                 <a className="contact-link linkedin" href="https://www.linkedin.com/in/lynden-lim-17b026118/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
-                <a className="contact-link github" href="https://github.com/lyndenlim" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
+                <a className="contact-link github-homepage" href="https://github.com/lyndenlim" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
                 <a className=" contact-link resume" href="/#"><FontAwesomeIcon icon={faFileLines} /></a>
             </div>
 

@@ -113,19 +113,15 @@ function HomePage() {
                     </div>
                 </div>
             </div>
-            <hr />
             <div className="about-container" name="about" id="about" ref={aboutSection}>
                 <About />
             </div>
-            <hr />
             <div className="projects-container" name="projects" id="projects" ref={projectsSection}>
                 <Projects />
             </div>
-            <hr />
             <div className="skills-container" name="skills" id="skills" ref={skillsSection}>
                 <Skills />
             </div>
-            <hr />
             <div className="contact-container" name="contact" id="contact" ref={contactSection}>
                 <Contact />
             </div>
