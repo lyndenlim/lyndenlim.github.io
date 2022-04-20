@@ -7,7 +7,7 @@ body {
   font-family: 'Mukta', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #98B4AA !important;
+  background-color: #dfdad4 !important;
 }
 
 code {
@@ -22,9 +22,15 @@ code {
   font-weight: bold;
 }
 
+#title {
+  font-weight: bold;
+}
+
 .info-container {
   cursor: default;
   margin-bottom: 1.5em;
+  color: white;
+  text-shadow: black 0px 0px 10px;
 }
 
 .homepage-container,
@@ -38,6 +44,25 @@ code {
   align-items: center;
   justify-content: center;
   display: flex;
+}
+
+.homepage-container {
+  position: relative;
+  z-index: 1;
+}
+
+.homepage-container:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(./images/background.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .skill-container {
@@ -65,6 +90,7 @@ code {
 }
 
 .form-container {
+  width: 450px;
   text-align: center;
   margin: auto;
 }
@@ -121,16 +147,18 @@ code {
   color: white;
 }
 
-.github-homepage, .resume {
+.github-homepage,
+.resume {
   color: black;
 }
 
-.github-homepage:hover, .resume:hover {
+.github-homepage:hover,
+.resume:hover {
   color: black
 }
 
 .to-top-button {
-  background-color: #222;
+  background-color: black;
   color: white;
   font-size: 25px;
   width: 40px;
@@ -140,6 +168,19 @@ code {
   bottom: 40px;
   right: 40px;
   z-index: 1;
+  animation: test 2s linear 2s infinite alternate;
+}
+
+@keyframes test {
+
+  0%,
+  100% {
+    bottom: 40;
+  }
+
+  50% {
+    bottom: 55px;
+  }
 }
 
 @mixin button($bcolor,
@@ -163,12 +204,12 @@ code {
   height: 50px;
   margin: auto;
   overflow: hidden;
-  border: 1px solid;
+  border: 1px solid black;
   font-weight: 300;
   font-size: 20px;
   transition: 0.5s;
   letter-spacing: 1px;
-  border-radius: 8px;
+  background-color: white;
 
   button {
     width: 100%;
@@ -178,7 +219,7 @@ code {
     letter-spacing: 1px;
     font-weight: bold;
 
-    @include button(#000,
+    @include button(black,
       "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
       2300%,
       100%,
@@ -201,12 +242,12 @@ code {
   height: 50px;
   margin: auto;
   overflow: hidden;
-  border: 1px solid;
+  border: 1px solid black;
   font-weight: 300;
   font-size: 20px;
   transition: 0.5s;
   letter-spacing: 1px;
-  border-radius: 8px;
+  background-color: white;
 
   button {
     width: 100%;
@@ -216,7 +257,7 @@ code {
     letter-spacing: 1px;
     font-weight: bold;
 
-    @include button(#000,
+    @include button(black,
       "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
       2300%,
       5%,
@@ -239,11 +280,11 @@ code {
   height: 50px;
   margin: auto;
   overflow: hidden;
-  border: 1px solid #000;
+  border: 1px solid black;
   font-weight: 300;
   transition: 0.5s;
   letter-spacing: 1px;
-  border-radius: 8px;
+  background-color: white;
 
   button {
     width: 100%;
@@ -253,7 +294,7 @@ code {
     letter-spacing: 1px;
     font-weight: bold;
 
-    @include button(#000, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png",
+    @include button(black, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png",
       3000%,
       100%,
       none,
@@ -272,7 +313,7 @@ code {
 
 .mask {
   position: absolute;
-  color: #000;
+  color: black;
   text-align: center;
   width: 100%;
   font-weight: 300;
@@ -281,7 +322,6 @@ code {
   margin-top: 12px;
   overflow: hidden;
   font-weight: bold;
-
 }
 
 @-webkit-keyframes ani {
@@ -338,11 +378,11 @@ code {
   height: 50px;
   margin: auto;
   overflow: hidden;
-  border: 1px solid #000;
+  border: 1px solid black;
   font-weight: 300;
   transition: 0.5s;
   letter-spacing: 1px;
-  border-radius: 8px;
+  background-color: white;
 
   button {
     width: 101%;
@@ -353,7 +393,7 @@ code {
     font-weight: bold;
 
 
-    @include button(#000, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png",
+    @include button(black, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png",
       7100%,
       100%,
       none,
@@ -374,7 +414,7 @@ code {
 }
 
 .send-message-button {
-  background-color: #222;
+  background-color: black;
   border-radius: 4px;
   border-style: none;
   box-sizing: border-box;
@@ -517,7 +557,7 @@ code {
 
 .more-button {
   background-color: black;
-  border: 0.5px solid black;
+  border: 1px solid white;
   border-radius: 1.5rem;
   box-sizing: border-box;
   color: white;
@@ -562,8 +602,14 @@ code {
 nav {
   position: sticky;
   top: 0;
-  background-color: #78938A;
-  z-index: 1;
+  background-color: #c4bfb7;
+  z-index: 2;
+  // transition: transform 0.2s ease-in-out;
+  // transform: translateY(0);
+}
+
+.slide {
+  // transform: translateY(1px);
 }
 
 nav .container {
@@ -581,7 +627,7 @@ nav .container ul li {
 }
 
 nav .container ul li.active {
-  background-color: slategray;
+  background-color: black;
   transition: 0.3 ease background-color;
   color: white;
 }

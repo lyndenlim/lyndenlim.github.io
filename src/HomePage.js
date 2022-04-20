@@ -4,6 +4,8 @@ import About from "./About"
 import Projects from "./Projects"
 import Skills from "./Skills"
 import Contact from "./Contact"
+import NavigationButtons from "./NavigationButtons"
+import NavBar from "./NavBar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 
@@ -18,15 +20,18 @@ function HomePage() {
     const projectsNav = useRef()
     const skillsNav = useRef()
     const contactNav = useRef()
+    const navbar = useRef()
     const [sections, setSections] = useState([aboutSection, projectsSection, skillsSection, contactSection])
     const [navs, setNavs] = useState([aboutNav, projectsNav, skillsNav, contactNav])
     const [currentSection, setCurrentSection] = useState("")
-    console.log(currentSection)
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
             sections.forEach(section => {
                 if (window.scrollY >= section.current.offsetTop - section.current.offsetHeight / 3) {
+                    if (navbar.current) {
+                        navbar.current.classList.add("slide")
+                    }
                     setCurrentSection(section)
                     setShowTopButton(true);
                     setShowNavBar(true);
@@ -40,7 +45,7 @@ function HomePage() {
             navs.forEach(nav => {
                 if (nav.current) {
                     nav.current.classList.remove("active")
-                    if (nav.current.className === currentSection.current.id) {
+                    if (currentSection && nav.current.className === currentSection.current.id) {
                         nav.current.classList.add("active")
                     }
                 }
@@ -75,53 +80,41 @@ function HomePage() {
     return (
         <>
             {showNavBar ?
-                <nav>
-                    <div className="container">
-                        <ul>
-                            <li className="about" onClick={scrollToAbout} ref={aboutNav}>ABOUT</li>
-                            <li className="projects" onClick={scrollToProjects} ref={projectsNav}>PORTFOLIO</li>
-                            <li className="skills" onClick={scrollToSkills} ref={skillsNav}>SKILLS</li>
-                            <li className="contact" onClick={scrollToContact} ref={contactNav}>CONTACT</li>
-                        </ul>
-                    </div>
-                </nav>
+                <NavBar
+                    showNavBar={showNavBar}
+                    scrollToAbout={scrollToAbout}
+                    scrollToProjects={scrollToProjects}
+                    scrollToSkills={scrollToSkills}
+                    scrollToContact={scrollToContact}
+                    aboutNav={aboutNav}
+                    projectsNav={projectsNav}
+                    skillsNav={skillsNav}
+                    contactNav={contactNav}
+                    navbar={navbar}
+                />
                 :
                 null}
             <div className="homepage-container">
                 <div >
                     <div className="info-container">
                         <h1 id="name">Lynden Lim</h1>
-                        <h2>Fullstack Developer</h2>
+                        <h2 id="title">Fullstack Developer</h2>
                     </div>
-                    <div className="button-container">
-                        <div className="about-button-container">
-                            <span className="mask">ABOUT</span>
-                            <button onClick={scrollToAbout}>ABOUT</button>
-                        </div>
-                        <div className="projects-button-container">
-                            <span className="mask">PORTFOLIO</span>
-                            <button onClick={scrollToProjects}>PORTFOLIO</button>
-                        </div>
-                        <div className="skills-button-container">
-                            <span className="mask">SKILLS</span>
-                            <button onClick={scrollToSkills}>SKILLS</button>
-                        </div>
-                        <div className="contact-button-container">
-                            <span className="mask">CONTACT</span>
-                            <button onClick={scrollToContact}>CONTACT</button>
-                        </div>
-                    </div>
+                    <NavigationButtons scrollToAbout={scrollToAbout} scrollToProjects={scrollToProjects} scrollToSkills={scrollToSkills} scrollToContact={scrollToContact} />
                 </div>
             </div>
             <div className="about-container" name="about" id="about" ref={aboutSection}>
                 <About />
             </div>
+            <hr />
             <div className="projects-container" name="projects" id="projects" ref={projectsSection}>
                 <Projects />
             </div>
+            <hr />
             <div className="skills-container" name="skills" id="skills" ref={skillsSection}>
                 <Skills />
             </div>
+            <hr />
             <div className="contact-container" name="contact" id="contact" ref={contactSection}>
                 <Contact />
             </div>
