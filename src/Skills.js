@@ -7,10 +7,11 @@ import postgresql from "./images/postgresql.png"
 import git from "./images/git.png"
 import html from "./images/html.png"
 import css from "./images/css.png"
+import { motion } from "framer-motion"
 
 function Skills() {
     return (
-        <div className="skill-container">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }} className="skill-container">
             <div className="skill-image-container">
                 <img className="skill-image" src={react} alt="react" />
                 <div className="skill">React</div>
@@ -43,7 +44,7 @@ function Skills() {
                 <img className="skill-image" src={css} alt="css" />
                 <div className="skill">CSS</div>
             </div>
-        </div>
+        </motion.div>
 
     )
 }

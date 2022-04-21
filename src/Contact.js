@@ -6,6 +6,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faFileLines, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import Form from "react-bootstrap/Form"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
+import { motion } from "framer-motion"
 
 function Contact() {
     const [name, setName] = useState("")
@@ -69,7 +70,7 @@ function Contact() {
     }
 
     return (
-        <div >
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
             <div className="form-container" >
                 <div className="contact-header">
                     Contact Me
@@ -104,35 +105,39 @@ function Contact() {
                 <a className=" contact-link resume" href="/#"><FontAwesomeIcon icon={faFileLines} /></a>
             </div>
 
-            {showError ?
-                <ToastContainer
-                    position="bottom-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                />
-                :
-                null}
-            {showSuccess ?
-                <ToastContainer
-                    position="bottom-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                />
-                :
-                null}
-        </div>
+            {
+                showError ?
+                    <ToastContainer
+                        position="bottom-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                    />
+                    :
+                    null
+            }
+            {
+                showSuccess ?
+                    <ToastContainer
+                        position="bottom-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                    />
+                    :
+                    null
+            }
+        </motion.div >
     )
 }
 

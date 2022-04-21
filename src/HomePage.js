@@ -8,6 +8,7 @@ import NavigationButtons from "./NavigationButtons"
 import NavBar from "./NavBar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
+import { motion } from "framer-motion"
 
 function HomePage() {
     const [showTopButton, setShowTopButton] = useState(false)
@@ -95,13 +96,13 @@ function HomePage() {
                 :
                 null}
             <div className="homepage-container">
-                <div >
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.4 }}>
                     <div className="info-container">
                         <h1 id="name">Lynden Lim</h1>
                         <h2 id="title">Fullstack Developer</h2>
                     </div>
                     <NavigationButtons scrollToAbout={scrollToAbout} scrollToProjects={scrollToProjects} scrollToSkills={scrollToSkills} scrollToContact={scrollToContact} />
-                </div>
+                </motion.div>
             </div>
             <div className="about-container" name="about" id="about" ref={aboutSection}>
                 <About />
@@ -118,7 +119,7 @@ function HomePage() {
             <div className="contact-container" name="contact" id="contact" ref={contactSection}>
                 <Contact />
             </div>
-            {showTopButton ? <button className="to-top-button" onClick={() => Scroll.animateScroll.scrollToTop()}><FontAwesomeIcon icon={faArrowUp} /></button> : null}
+            {showTopButton ? <motion.button initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1 }} className="to-top-button" onClick={() => Scroll.animateScroll.scrollToTop()}><FontAwesomeIcon icon={faArrowUp} /></motion.button> : null}
         </>
     )
 }

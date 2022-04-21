@@ -1,6 +1,8 @@
-function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToContact, aboutNav, projectsNav, skillsNav, contactNav, navbar }) {
+import { motion } from "framer-motion"
+
+function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToContact, aboutNav, projectsNav, skillsNav, contactNav, navbar, showNavBar }) {
     return (
-        <nav ref={navbar}>
+        <motion.nav initial={{ y: -50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1 }} exit={{ y: -50 }} ref={navbar}>
             <div className="container">
                 <ul>
                     <li className="about" onClick={scrollToAbout} ref={aboutNav}>ABOUT</li>
@@ -9,7 +11,7 @@ function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToConta
                     <li className="contact" onClick={scrollToContact} ref={contactNav}>CONTACT</li>
                 </ul>
             </div>
-        </nav>
+        </motion.nav>
     )
 }
 

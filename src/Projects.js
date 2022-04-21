@@ -14,6 +14,7 @@ import hurdle3 from "./images/hurdle3.png"
 import Modal from "react-bootstrap/Modal"
 import Carousel from "react-bootstrap/Carousel"
 import $ from "jquery"
+import { motion } from "framer-motion"
 
 function Projects() {
     const [undecidedShow, setUndecidedShow] = useState(false);
@@ -27,6 +28,7 @@ function Projects() {
     const handleHurdleClose = () => setHurdleShow(false);
     const handleHurdleShow = () => setHurdleShow(true);
 
+    // useref to replace
     $(".option").click(function () {
         $(".option").removeClass("active");
         $(this).addClass("active");
@@ -34,7 +36,7 @@ function Projects() {
     });
 
     return (
-        <div>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }} viewport={{ once: true }}>
             <div className="options">
                 <div className="option active" style={{ backgroundImage: `url(${undecided1})` }}>
                     <div className="label">
@@ -93,7 +95,7 @@ function Projects() {
                 <Modal.Header closeButton>
                     <Modal.Title>Undec¿ded</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body style={{ textAlign: 'center' }}>
                     <Carousel interval={7000}>
                         <Carousel.Item><img className="img-fluid carousel-image" src={undecided1} alt="undecided1" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={undecided2} alt="undecided2" /></Carousel.Item>
@@ -113,7 +115,7 @@ function Projects() {
                 <Modal.Header closeButton>
                     <Modal.Title>SCHEM△</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body style={{ textAlign: 'center' }}>
                     <Carousel interval={7000}>
                         <Carousel.Item><img className="img-fluid carousel-image" src={schema1} alt="schema1" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={schema2} alt="schema2" /></Carousel.Item>
@@ -133,7 +135,7 @@ function Projects() {
                 <Modal.Header closeButton>
                     <Modal.Title>Hurdle</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body style={{ textAlign: 'center' }}>
                     <Carousel interval={7000}>
                         <Carousel.Item><img className="img-fluid carousel-image" src={hurdle1} alt="hurdle1" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={hurdle2} alt="hurdle2" /></Carousel.Item>
@@ -148,7 +150,7 @@ function Projects() {
                     </div>
                 </Modal.Body>
             </Modal>
-        </div>
+        </motion.div>
     )
 }
 
