@@ -1,7 +1,7 @@
 import React from 'react'
 import react from "./images/react.png"
-import python from "./images/python.png"
 import ruby from "./images/ruby.png"
+import ruby_on_rails from "./images/ruby_on_rails.png"
 import javascript from "./images/javascript.png"
 import postgresql from "./images/postgresql.png"
 import git from "./images/git.png"
@@ -11,18 +11,18 @@ import { motion } from "framer-motion"
 
 function Skills() {
     return (
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }} className="skill-container">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }} viewport={{ once: true }} className="skill-container">
             <div className="skill-image-container">
                 <img className="skill-image" src={react} alt="react" />
                 <div className="skill">React</div>
             </div>
             <div className="skill-image-container">
-                <img className="skill-image" src={python} alt="python" />
-                <div className="skill">Python</div>
-            </div>
-            <div className="skill-image-container">
                 <img className="skill-image" src={ruby} alt="ruby" />
                 <div className="skill">Ruby</div>
+            </div>
+            <div className="skill-image-container">
+                <img className="skill-image" src={ruby_on_rails} alt="ruby-on-rails" />
+                <div className="skill">Ruby on Rails</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={postgresql} alt="postgresql" />
@@ -30,7 +30,7 @@ function Skills() {
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={git} alt="git" />
-                <div className="skill">GIT</div>
+                <div className="skill">Git</div>
             </div>
             <div className="skill-image-container">
                 <img className="skill-image" src={javascript} alt="javascript" />

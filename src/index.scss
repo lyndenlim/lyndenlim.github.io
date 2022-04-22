@@ -80,6 +80,7 @@ code {
 .skill-image {
   height: 150px;
   width: fit-content;
+
 }
 
 .skill {
@@ -514,6 +515,7 @@ code {
         border: 0.5px solid black;
         background-color: white;
         color: var(--defaultBackground);
+        font-weight: bold;
       }
 
       .info {
@@ -599,20 +601,22 @@ code {
   height: 400px !important;
 }
 
-nav {
-  position: sticky;
+.nav {
+  position: fixed;
   top: 0;
   background-color: #c4bfb7;
   z-index: 2;
+  width: 100%;
+  height: 57.5px;
 }
 
-nav .container {
-  width: 90%;
+.nav .container {
+  width: 100%;
   max-width: 1000px;
   text-align: center;
 }
 
-nav .container ul li {
+.nav .container ul li {
   font-size: 20px;
   display: inline-block;
   padding: 7.5px;
@@ -620,7 +624,7 @@ nav .container ul li {
   border-radius: 10px;
 }
 
-nav .container ul li.active {
+.nav .container ul li.active {
   background-color: black;
   transition: 0.3 ease background-color;
   color: white;
