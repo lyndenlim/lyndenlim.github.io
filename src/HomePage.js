@@ -99,7 +99,7 @@ function HomePage() {
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.4 }}>
                     <div className="info-container">
                         <h1 id="name">Lynden Lim</h1>
-                        <h2 id="title">Fullstack Developer</h2>
+                        <h2 id="title">Full Stack Developer</h2>
                     </div>
                     <NavigationButtons scrollToAbout={scrollToAbout} scrollToProjects={scrollToProjects} scrollToSkills={scrollToSkills} scrollToContact={scrollToContact} />
                 </motion.div>
