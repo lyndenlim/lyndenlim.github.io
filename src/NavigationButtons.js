@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NavigationButtons({scrollToAbout, scrollToProjects, scrollToSkills, scrollToContact}) {
+function NavigationButtons({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToContact }) {
     return (
         <div className="button-container">
             <div className="about-button-container">
