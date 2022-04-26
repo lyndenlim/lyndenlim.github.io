@@ -102,7 +102,7 @@ function Contact() {
             <div className="contact-link-container">
                 <a className="contact-link linkedin" href="https://www.linkedin.com/in/lynden-lim-17b026118/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
                 <a className="contact-link github-homepage" href="https://github.com/lyndenlim" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                <a className=" contact-link resume" href="https://drive.google.com/file/d/1Cqn6Uf_WTw9PoHxcYxy2brGcLfcVm6Dj/view?usp=sharing" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFileLines} /></a>
+                <a className=" contact-link resume" href="https://drive.google.com/file/d/1WIChRNkJUiPiXZ6TOQw-7SFxy29jI6g3/view?usp=sharing" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFileLines} /></a>
             </div>
 
             {
