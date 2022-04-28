@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.fc86acfc.css",
-    "main.js": "/static/js/main.9dcd4448.js",
-    "static/media/undecided1.png": "/static/media/undecided1.282c09613339452c3ce7.png",
-    "static/media/undecided2.png": "/static/media/undecided2.5dcf2097d9ed8d2e93b3.png",
-    "static/media/undecided3.png": "/static/media/undecided3.2116d8528b561c7fc7e1.png",
-    "static/media/schema2.png": "/static/media/schema2.531e4912f4e9fe1a6894.png",
-    "static/media/schema1.png": "/static/media/schema1.a13b101994c02640a28c.png",
-    "static/media/schema3.png": "/static/media/schema3.61b2405529c7a16b8f7a.png",
+    "main.js": "/static/js/main.0a8f2f1b.js",
+    "static/media/undecided1.gif": "/static/media/undecided1.0104e2eecacb7dc5be43.gif",
+    "static/media/undecided4.gif": "/static/media/undecided4.cde932ce3edba9ac30a3.gif",
+    "static/media/schema4.gif": "/static/media/schema4.f346cce36d507ce25b1e.gif",
+    "static/media/schema1.gif": "/static/media/schema1.fa9d6957b658b6a6f932.gif",
+    "static/media/schema2.gif": "/static/media/schema2.98fba1d89b0470b91305.gif",
+    "static/media/undecided2.gif": "/static/media/undecided2.d3ec82486c7c01672c4c.gif",
+    "static/media/undecided3.gif": "/static/media/undecided3.f5ff991aa4da3a2e4d1f.gif",
+    "static/media/schema3.gif": "/static/media/schema3.4f5404864004a77aeddc.gif",
     "static/media/hurdle3.png": "/static/media/hurdle3.84099c21d2fe2079237c.png",
     "static/media/hurdle2.png": "/static/media/hurdle2.78539e7554778fbb9d8e.png",
     "static/media/hurdle1.png": "/static/media/hurdle1.4caec09f741f6a2c876c.png",
@@ -21,10 +23,10 @@
     "static/media/ruby_on_rails.png": "/static/media/ruby_on_rails.8c3b875c28bfb6fe90a3.png",
     "index.html": "/index.html",
     "main.fc86acfc.css.map": "/static/css/main.fc86acfc.css.map",
-    "main.9dcd4448.js.map": "/static/js/main.9dcd4448.js.map"
+    "main.0a8f2f1b.js.map": "/static/js/main.0a8f2f1b.js.map"
   },
   "entrypoints": [
     "static/css/main.fc86acfc.css",
-    "static/js/main.9dcd4448.js"
+    "static/js/main.0a8f2f1b.js"
   ]
 }
