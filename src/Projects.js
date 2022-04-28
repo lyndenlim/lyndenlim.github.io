@@ -2,12 +2,14 @@ import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { faDesktop } from "@fortawesome/free-solid-svg-icons"
-import undecided1 from "./images/undecided1.png"
-import undecided2 from "./images/undecided2.png"
-import undecided3 from "./images/undecided3.png"
-import schema1 from "./images/schema1.png"
-import schema2 from "./images/schema2.png"
-import schema3 from "./images/schema3.png"
+import undecided1 from "./images/undecided1.gif"
+import undecided2 from "./images/undecided2.gif"
+import undecided3 from "./images/undecided3.gif"
+import undecided4 from "./images/undecided4.gif"
+import schema1 from "./images/schema1.gif"
+import schema2 from "./images/schema2.gif"
+import schema3 from "./images/schema3.gif"
+import schema4 from "./images/schema4.gif"
 import hurdle1 from "./images/hurdle1.png"
 import hurdle2 from "./images/hurdle2.png"
 import hurdle3 from "./images/hurdle3.png"
@@ -96,10 +98,11 @@ function Projects() {
                     <Modal.Title>Undec¿ded</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ textAlign: 'center' }}>
-                    <Carousel interval={7000}>
+                    <Carousel interval={15000}>
                         <Carousel.Item><img className="img-fluid carousel-image" src={undecided1} alt="undecided1" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={undecided2} alt="undecided2" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={undecided3} alt="undecided3" /></Carousel.Item>
+                        <Carousel.Item><img className="img-fluid carousel-image" src={undecided4} alt="undecided4" /></Carousel.Item>
                     </Carousel>
                     <hr />
                     Restaurant/recipe assistant with randomizer feature that returns a restaurant within a mile radius of your current location.
@@ -116,10 +119,11 @@ function Projects() {
                     <Modal.Title>SCHEM△</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ textAlign: 'center' }}>
-                    <Carousel interval={7000}>
+                    <Carousel interval={30000}>
                         <Carousel.Item><img className="img-fluid carousel-image" src={schema1} alt="schema1" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={schema2} alt="schema2" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={schema3} alt="schema3" /></Carousel.Item>
+                        <Carousel.Item><img className="img-fluid carousel-image" src={schema4} alt="schema4" /></Carousel.Item>
                     </Carousel>
                     <hr />
                     Video viewing and streaming platform that centralizes topics in technology, programming, and science.
