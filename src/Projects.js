@@ -98,7 +98,7 @@ function Projects() {
                     <Modal.Title>Undec¿ded</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ textAlign: 'center' }}>
-                    <Carousel interval={15000}>
+                    <Carousel className="carousel-dark" interval={15000}>
                         <Carousel.Item><img className="img-fluid carousel-image" src={undecided1} alt="undecided1" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={undecided2} alt="undecided2" /></Carousel.Item>
                         <Carousel.Item><img className="img-fluid carousel-image" src={undecided3} alt="undecided3" /></Carousel.Item>
