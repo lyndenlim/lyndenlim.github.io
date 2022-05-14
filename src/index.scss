@@ -99,8 +99,7 @@ code {
 .contact-header {
   cursor: default;
   font-weight: bold;
-  font-size: 36px;
-  text-align: left;
+  font-size: 48px;
   margin-bottom: 0.5em;
 }
 
@@ -642,4 +641,12 @@ code {
   text-align: left;
   font-size: 24px;
   width: 1100px;
+}
+
+.email {
+  color: black;
+}
+
+.email:hover {
+  color: black;
 }

@@ -3,79 +3,79 @@ import { send } from "@emailjs/browser"
 import { ToastContainer, toast } from 'react-toastify';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { faFileLines, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+import { faFileLines, faPaperPlane, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import Form from "react-bootstrap/Form"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import { motion } from "framer-motion"
 
 function Contact() {
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [message, setMessage] = useState("")
-    const [showSuccess, setShowSuccess] = useState(false)
-    const [showError, setShowError] = useState(false)
+    // const [name, setName] = useState("")
+    // const [email, setEmail] = useState("")
+    // const [message, setMessage] = useState("")
+    // const [showSuccess, setShowSuccess] = useState(false)
+    // const [showError, setShowError] = useState(false)
 
-    function sendEmail(e) {
-        e.preventDefault()
-        send(
-            process.env.REACT_APP_EMAIL_SERVICE_ID,
-            process.env.REACT_APP_EMAIL_TEMPLATE_ID,
-            {
-                name: name,
-                email: email,
-                message: message
-            },
-            process.env.REACT_APP_EMAIL_PUBLIC_KEY
-        )
-            .then(r => {
-                if (r.status === 200) {
-                    setName("")
-                    setEmail("")
-                    setMessage("")
-                    setShowSuccess(true)
-                    toast.success("Email successfully sent!", {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    })
-                } else {
-                    setShowError(true)
-                    toast.error("Something went wrong, try again later.", {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    })
-                }
-            })
-            .catch(() => {
-                setShowError(true)
-                toast.error("Something went wrong, try again later.", {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                })
-            })
-    }
+    // function sendEmail(e) {
+    //     e.preventDefault()
+    //     send(
+    //         process.env.REACT_APP_EMAIL_SERVICE_ID,
+    //         process.env.REACT_APP_EMAIL_TEMPLATE_ID,
+    //         {
+    //             name: name,
+    //             email: email,
+    //             message: message
+    //         },
+    //         process.env.REACT_APP_EMAIL_PUBLIC_KEY
+    //     )
+    //         .then(r => {
+    //             if (r.status === 200) {
+    //                 setName("")
+    //                 setEmail("")
+    //                 setMessage("")
+    //                 setShowSuccess(true)
+    //                 toast.success("Email successfully sent!", {
+    //                     position: "bottom-right",
+    //                     autoClose: 5000,
+    //                     hideProgressBar: false,
+    //                     closeOnClick: true,
+    //                     pauseOnHover: true,
+    //                     draggable: true,
+    //                     progress: undefined,
+    //                 })
+    //             } else {
+    //                 setShowError(true)
+    //                 toast.error("Something went wrong, try again later.", {
+    //                     position: "bottom-right",
+    //                     autoClose: 5000,
+    //                     hideProgressBar: false,
+    //                     closeOnClick: true,
+    //                     pauseOnHover: true,
+    //                     draggable: true,
+    //                     progress: undefined,
+    //                 })
+    //             }
+    //         })
+    //         .catch(() => {
+    //             setShowError(true)
+    //             toast.error("Something went wrong, try again later.", {
+    //                 position: "bottom-right",
+    //                 autoClose: 5000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //             })
+    //         })
+    // }
 
     return (
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
             <div className="form-container" >
                 <div className="contact-header">
-                    Contact Me
+                    Get in Touch
                 </div>
-                <form onSubmit={sendEmail}>
+                {/* <form onSubmit={sendEmail}>
                     <div className="row">
                         <div className="col-6 contact-input">
                             <FloatingLabel label="Name">
@@ -97,15 +97,16 @@ function Contact() {
 
                     <br />
                     <button className="send-message-button" type="submit">SEND &nbsp;<FontAwesomeIcon icon={faPaperPlane} /></button>
-                </form>
+                </form> */}
             </div>
             <div className="contact-link-container">
+                <a className="contact-link email" href="mailto:lyndenlim15@gmail.com"><FontAwesomeIcon icon={faEnvelope} /></a>
                 <a className="contact-link linkedin" href="https://www.linkedin.com/in/lynden-lim-17b026118/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
                 <a className="contact-link github-homepage" href="https://github.com/lyndenlim" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
                 <a className=" contact-link resume" href="https://drive.google.com/file/d/1WIChRNkJUiPiXZ6TOQw-7SFxy29jI6g3/view?usp=sharing" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFileLines} /></a>
             </div>
 
-            {
+            {/* {
                 showError ?
                     <ToastContainer
                         position="bottom-right"
@@ -136,7 +137,7 @@ function Contact() {
                     />
                     :
                     null
-            }
+            } */}
         </motion.div >
     )
 }
