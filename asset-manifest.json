@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.679794d8.css",
-    "main.js": "/static/js/main.f1448130.js",
+    "main.css": "/static/css/main.ff9a263f.css",
+    "main.js": "/static/js/main.ca2818dd.js",
     "static/media/undecided1.gif": "/static/media/undecided1.0104e2eecacb7dc5be43.gif",
     "static/media/undecided4.gif": "/static/media/undecided4.cde932ce3edba9ac30a3.gif",
     "static/media/schema4.gif": "/static/media/schema4.f346cce36d507ce25b1e.gif",
@@ -10,10 +10,14 @@
     "static/media/undecided2.gif": "/static/media/undecided2.d3ec82486c7c01672c4c.gif",
     "static/media/undecided3.gif": "/static/media/undecided3.f5ff991aa4da3a2e4d1f.gif",
     "static/media/schema3.gif": "/static/media/schema3.4f5404864004a77aeddc.gif",
+    "static/media/inconvienence1.gif": "/static/media/inconvienence1.c443e2aa8b861af0d3f8.gif",
+    "static/media/inconvienence3.gif": "/static/media/inconvienence3.176293573c992e6d9993.gif",
     "static/media/hurdle3.png": "/static/media/hurdle3.84099c21d2fe2079237c.png",
     "static/media/hurdle2.png": "/static/media/hurdle2.78539e7554778fbb9d8e.png",
+    "static/media/inconvienence2.gif": "/static/media/inconvienence2.edac75b3628cddfe999c.gif",
     "static/media/hurdle1.png": "/static/media/hurdle1.4caec09f741f6a2c876c.png",
     "static/media/background.gif": "/static/media/background.ff4c8ae7ec4eaf18d6c9.gif",
+    "static/media/inconvienence4.gif": "/static/media/inconvienence4.32a40ab634b0e5b91f3d.gif",
     "static/media/ruby.png": "/static/media/ruby.0b422d1937bfcd04dc8e.png",
     "static/media/postgresql.png": "/static/media/postgresql.77effd05cdc4075a0c45.png",
     "static/media/react.png": "/static/media/react.b76698cf6e821b8a8758.png",
@@ -22,11 +26,11 @@
     "static/media/javascript.png": "/static/media/javascript.7f8751632b42a9932c15.png",
     "static/media/ruby_on_rails.png": "/static/media/ruby_on_rails.8c3b875c28bfb6fe90a3.png",
     "index.html": "/index.html",
-    "main.679794d8.css.map": "/static/css/main.679794d8.css.map",
-    "main.f1448130.js.map": "/static/js/main.f1448130.js.map"
+    "main.ff9a263f.css.map": "/static/css/main.ff9a263f.css.map",
+    "main.ca2818dd.js.map": "/static/js/main.ca2818dd.js.map"
   },
   "entrypoints": [
-    "static/css/main.679794d8.css",
-    "static/js/main.f1448130.js"
+    "static/css/main.ff9a263f.css",
+    "static/js/main.ca2818dd.js"
   ]
 }
