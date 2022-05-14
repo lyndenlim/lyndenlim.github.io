@@ -1,7 +1,11 @@
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import { faDesktop } from "@fortawesome/free-solid-svg-icons"
+import { faDesktop, faStore } from "@fortawesome/free-solid-svg-icons"
+import inconvienence1 from "./images/inconvienence1.gif"
+import inconvienence2 from "./images/inconvienence2.gif"
+import inconvienence3 from "./images/inconvienence3.gif"
+import inconvienence4 from "./images/inconvienence4.gif"
 import undecided1 from "./images/undecided1.gif"
 import undecided2 from "./images/undecided2.gif"
 import undecided3 from "./images/undecided3.gif"
@@ -19,10 +23,13 @@ import $ from "jquery"
 import { motion } from "framer-motion"
 
 function Projects() {
+    const [inconvienenceShow, setInconvienenceShow] = useState(false);
     const [undecidedShow, setUndecidedShow] = useState(false);
     const [schemaShow, setSchemaShow] = useState(false);
     const [hurdleShow, setHurdleShow] = useState(false);
 
+    const handleInconvienenceClose = () => setInconvienenceShow(false);
+    const handleInconvienenceShow = () => setInconvienenceShow(true);
     const handleUndecidedClose = () => setUndecidedShow(false);
     const handleUndecidedShow = () => setUndecidedShow(true);
     const handleSchemaClose = () => setSchemaShow(false);
@@ -40,7 +47,25 @@ function Projects() {
     return (
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }} viewport={{ once: true }}>
             <div className="options">
-                <div className="option active" style={{ backgroundImage: `url(${undecided1})` }}>
+                <div className="option active" style={{ backgroundImage: `url(${inconvienence1})` }}>
+                    <div className="label">
+                        <div className="icon">
+                            <FontAwesomeIcon icon={faStore} />
+                        </div>
+                        <div className="info">
+                            <div className="main">
+                                The Inconvenience Store
+                                <div className="more-button-container">
+                                    <button onClick={handleInconvienenceShow} className="more-button">More</button>
+                                </div>
+                            </div>
+                            <div className="sub">
+                                React JS / Ruby on Rails / PostgreSQL
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="option" style={{ backgroundImage: `url(${undecided1})` }}>
                     <div className="label">
                         <div className="icon">
                             ¿
@@ -151,6 +176,27 @@ function Projects() {
                     <div className="project-link-container">
                         <a className="project-link github" href="https://github.com/lyndenlim/hurdle" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
                         <a className="project-link website" href="https://lyndenlim.github.io/hurdle/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
+                    </div>
+                </Modal.Body>
+            </Modal>
+
+            <Modal show={inconvienenceShow} onHide={handleInconvienenceClose} size="lg">
+                <Modal.Header closeButton>
+                    <Modal.Title>The Inconvenience Store</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ textAlign: 'center' }}>
+                    <Carousel className="carousel-dark" interval={15000}>
+                        <Carousel.Item><img className="img-fluid carousel-image" src={inconvienence1} alt="inconvienence1" /></Carousel.Item>
+                        <Carousel.Item><img className="img-fluid carousel-image" src={inconvienence2} alt="inconvienence2" /></Carousel.Item>
+                        <Carousel.Item><img className="img-fluid carousel-image" src={inconvienence3} alt="inconvienence3" /></Carousel.Item>
+                        <Carousel.Item><img className="img-fluid carousel-image" src={inconvienence4} alt="inconvienence4" /></Carousel.Item>
+                    </Carousel>
+                    <hr />
+                    E-commerce store that features your everyday inconvenient items.
+                    <br />
+                    <div className="project-link-container">
+                        <a className="project-link github" href="https://github.com/lyndenlim/the-inconvienence-store" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
+                        <a className="project-link website" href="https://the-inconvienence-store.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
                     </div>
                 </Modal.Body>
             </Modal>
