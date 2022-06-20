@@ -1,9 +1,9 @@
-import { Route, Routes } from "react-router-dom"
-import HomePage from "./HomePage"
-import About from "./About"
-import Projects from "./Projects"
-import Skills from "./Skills"
-import Contact from "./Contact"
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./HomePage";
+import About from "./About";
+import Projects from "./Projects";
+import Skills from "./Skills";
+import Contact from "./Contact";
 
 function App() {
   return (
