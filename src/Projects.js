@@ -45,7 +45,8 @@ function Projects() {
     });
 
     return (
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }} viewport={{ once: true }}>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }} viewport={{ once: true }} className="projects-wrapper">
+            <h2 className="section-heading" style={{ marginBottom: '1.5rem' }}>Projects</h2>
             <div className="options">
                 <div className="option active" style={{ backgroundImage: `url(${inconvenience1})` }}>
                     <div className="label">

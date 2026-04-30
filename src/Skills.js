@@ -1,51 +1,51 @@
-import React from 'react'
-import react from "./images/react.png"
-import ruby from "./images/ruby.png"
-import ruby_on_rails from "./images/ruby_on_rails.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBrain, faInfinity } from "@fortawesome/free-solid-svg-icons"
+import { faPython, faAws } from "@fortawesome/free-brands-svg-icons"
+import reactImg from "./images/react.png"
 import javascript from "./images/javascript.png"
-import postgresql from "./images/postgresql.png"
 import git from "./images/git.png"
-import html from "./images/html.png"
-import css from "./images/css.png"
 import { motion } from "framer-motion"
+
+const skills = [
+    { name: 'React',       type: 'img', src: reactImg },
+    { name: 'JavaScript',  type: 'img', src: javascript },
+    { name: 'Git',         type: 'img', src: git },
+    { name: 'Python',      type: 'fa',  icon: faPython },
+    { name: 'AWS',         type: 'fa',  icon: faAws },
+    { name: 'Kubernetes',  type: 'url', src: 'https://cdn.simpleicons.org/kubernetes/326CE5' },
+    { name: 'Terraform',   type: 'url', src: 'https://cdn.simpleicons.org/terraform/7B42BC' },
+    { name: 'CI / CD',     type: 'fa',  icon: faInfinity },
+    { name: 'AI / Agentic', type: 'fa', icon: faBrain },
+]
+
+function SkillCard({ name, type, src, icon }) {
+    return (
+        <div className="skill-image-container">
+            <div className="skill-icon-wrapper">
+                {type === 'fa'
+                    ? <FontAwesomeIcon icon={icon} className="skill-fa-icon" />
+                    : <img className="skill-image" src={src} alt={name} />
+                }
+            </div>
+            <div className="skill">{name}</div>
+        </div>
+    )
+}
 
 function Skills() {
     return (
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }} viewport={{ once: true }} className="skill-container">
-            <div className="skill-image-container">
-                <img className="skill-image" src={react} alt="react" />
-                <div className="skill">React</div>
-            </div>
-            <div className="skill-image-container">
-                <img className="skill-image" src={ruby} alt="ruby" />
-                <div className="skill">Ruby</div>
-            </div>
-            <div className="skill-image-container">
-                <img className="skill-image" src={ruby_on_rails} alt="ruby-on-rails" />
-                <div className="skill">Ruby on Rails</div>
-            </div>
-            <div className="skill-image-container">
-                <img className="skill-image" src={postgresql} alt="postgresql" />
-                <div className="skill">PostgreSQL</div>
-            </div>
-            <div className="skill-image-container">
-                <img className="skill-image" src={git} alt="git" />
-                <div className="skill">Git</div>
-            </div>
-            <div className="skill-image-container">
-                <img className="skill-image" src={javascript} alt="javascript" />
-                <div className="skill">JavaScript</div>
-            </div>
-            <div className="skill-image-container">
-                <img className="skill-image" src={html} alt="html" />
-                <div className="skill">HTML</div>
-            </div>
-            <div className="skill-image-container">
-                <img className="skill-image" src={css} alt="css" />
-                <div className="skill">CSS</div>
+        <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            viewport={{ once: true }}
+            className="skills-wrapper"
+        >
+            <h2 className="section-heading">Skills</h2>
+            <div className="skill-container">
+                {skills.map(skill => <SkillCard key={skill.name} {...skill} />)}
             </div>
         </motion.div>
-
     )
 }
 
