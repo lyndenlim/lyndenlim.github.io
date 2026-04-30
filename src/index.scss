@@ -114,26 +114,18 @@ hr {
   }
 
   &.theme-toggle {
+    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin-left: 6px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-muted);
+    line-height: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    font-size: 11px;
-    line-height: 1;
-    padding: 5px 11px;
-    margin-left: 6px;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    color: var(--text-muted);
-    white-space: nowrap;
-
-    svg {
-      font-size: 11px;
-      flex-shrink: 0;
-      vertical-align: -0.1em;
-      position: relative;
-      top: 0.5px;
-    }
 
     &:hover {
       color: var(--accent);
@@ -143,12 +135,6 @@ hr {
   }
 }
 
-.theme-toggle-label {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
 
 .nav-resume {
   font-size: 12px;
@@ -250,7 +236,7 @@ hr {
   font-size: clamp(13px, 2.2vw, 20px);
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #c9a870;
   margin-top: 0.6em;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 2px 8px rgba(0, 0, 0, 0.9);
 }
@@ -287,138 +273,38 @@ hr {
   gap: 10px;
 }
 
-@mixin button($bcolor, $url, $x1, $y1, $bor, $col) {
-  background: $bcolor;
-  -webkit-mask: url($url);
-  mask: url($url);
-  -webkit-mask-size: $x1 $y1;
-  mask-size: $x1 $y1;
-  border: $bor;
-  color: $col;
-}
-
-%hero-btn-container {
+.hero-btn {
   position: relative;
-  width: 110px;
-  height: 50px;
-  margin: auto;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  letter-spacing: 1px;
-  background-color: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(4px);
-  transition: border-color 0.3s;
-
-  &:hover { border-color: rgba(255, 255, 255, 0.45); }
-}
-
-.about-button-container {
-  @extend %hero-btn-container;
-
-  button {
-    width: 100%;
-    height: 100%;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    @include button(white, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png", 2300%, 100%, none, #fff);
-    cursor: pointer;
-    -webkit-animation: ani2 0.7s steps(22) forwards;
-    animation: ani2 0.7s steps(22) forwards;
-    &:hover {
-      -webkit-animation: ani 0.7s steps(22) forwards;
-      animation: ani 0.7s steps(22) forwards;
-    }
-  }
-}
-
-.contact-button-container {
-  @extend %hero-btn-container;
-
-  button {
-    width: 100%;
-    height: 100%;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    @include button(white, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png", 2300%, 100%, none, #fff);
-    cursor: pointer;
-    -webkit-animation: ani2 0.7s steps(22) forwards;
-    animation: ani2 0.7s steps(22) forwards;
-    &:hover {
-      -webkit-animation: ani 0.7s steps(22) forwards;
-      animation: ani 0.7s steps(22) forwards;
-    }
-  }
-}
-
-.projects-button-container {
-  @extend %hero-btn-container;
-
-  button {
-    width: 100%;
-    height: 100%;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    @include button(white, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png", 3000%, 100%, none, #fff);
-    cursor: pointer;
-    -webkit-animation: ani2 0.7s steps(29) forwards;
-    animation: ani2 0.7s steps(29) forwards;
-    &:hover {
-      -webkit-animation: ani 0.7s steps(29) forwards;
-      animation: ani 0.7s steps(29) forwards;
-    }
-  }
-}
-
-.skills-button-container {
-  @extend %hero-btn-container;
-
-  button {
-    width: 101%;
-    height: 100%;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    @include button(white, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png", 7100%, 100%, none, #fff);
-    cursor: pointer;
-    -webkit-animation: ani2 0.7s steps(70) forwards;
-    animation: ani2 0.7s steps(70) forwards;
-    &:hover {
-      -webkit-animation: ani 0.7s steps(70) forwards;
-      animation: ani 0.7s steps(70) forwards;
-    }
-  }
-}
-
-.mask {
+  height: 46px;
+  min-width: 108px;
+  padding: 0 22px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid #c9a870;
   color: white;
-  text-align: center;
-  width: 100%;
-  font-weight: bold;
-  position: absolute;
-  font-size: 14px;
-  margin-top: 14px;
-  overflow: hidden;
-  letter-spacing: 1px;
-}
+  font-family: 'Mukta', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s ease;
 
-@-webkit-keyframes ani {
-  from { -webkit-mask-position: 0 0; mask-position: 0 0; }
-  to   { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
-}
-@keyframes ani {
-  from { -webkit-mask-position: 0 0; mask-position: 0 0; }
-  to   { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
-}
-@-webkit-keyframes ani2 {
-  from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
-  to   { -webkit-mask-position: 0 0; mask-position: 0 0; }
-}
-@keyframes ani2 {
-  from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
-  to   { -webkit-mask-position: 0 0; mask-position: 0 0; }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #c9a870;
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  span { position: relative; z-index: 1; }
+
+  &:hover {
+    color: #100e0c;
+    &::before { transform: translateX(0); }
+  }
 }
 
 /* ─── About ─────────────────────────────────────────── */
@@ -559,9 +445,11 @@ hr {
 
     .label {
       display: flex;
+      align-items: center;
       position: absolute;
       right: 0;
-      height: 40px;
+      height: auto;
+      min-height: 40px;
       transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
 
       .icon {
@@ -573,15 +461,15 @@ hr {
         max-width: 40px;
         height: 40px;
         border-radius: 100%;
-        border: 1px solid var(--accent);
-        background-color: rgba(201, 168, 112, 0.15);
-        color: var(--accent);
+        border: 1.5px solid rgba(255, 255, 255, 0.7);
+        background-color: rgba(0, 0, 0, 0.55);
+        color: white;
         font-weight: bold;
         font-size: 16px;
       }
 
       .info {
-        padding: 0 10px;
+        padding: 4px 10px;
         height: fit-content;
         border-radius: 5px;
         display: flex;
@@ -597,8 +485,16 @@ hr {
           transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
         }
 
-        .main { font-weight: bold; font-size: 1.1rem; }
-        .sub  { transition-delay: .1s; font-size: 0.82rem; opacity: 0.75; margin-top: 2px; }
+        .main {
+          font-weight: bold;
+          font-size: 1.1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+
+        .sub { transition-delay: .1s; font-size: 0.82rem; opacity: 0.75; margin-top: 4px; }
       }
     }
 
@@ -607,10 +503,10 @@ hr {
 }
 
 .more-button {
-  background: rgba(201, 168, 112, 0.1);
-  border: 1px solid var(--accent);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 20px;
-  color: var(--accent);
+  color: white;
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
@@ -619,10 +515,10 @@ hr {
   margin-left: 10px;
   transition: all .15s ease;
 
-  &:hover { background: var(--accent); color: var(--bg); }
+  &:hover { background: rgba(255, 255, 255, 0.2); }
 }
 
-.more-button-container { float: right; }
+.more-button-container { flex-shrink: 0; }
 
 .project-link {
   font-size: 32px;
@@ -789,7 +685,12 @@ hr {
   margin-bottom: 12px;
 }
 
-.contact-me-container { margin-bottom: 14px; }
+.contact-me-container {
+  margin-bottom: 14px;
+  width: 100%;
+
+  .form-floating { width: 100%; }
+}
 .contact-me-body { height: 200px !important; }
 
 /* Bootstrap form overrides */
@@ -896,16 +797,28 @@ hr {
 
   .skill-image-container { width: 140px; }
 
-  .nav-inner { padding: 0 16px; }
-  .nav-brand { font-size: 14px; }
+  .nav-inner { padding: 0 12px; gap: 0.5rem; }
+  .nav-brand { font-size: 13px; }
+  .nav-resume { display: none; }
   .nav-links li { font-size: 11px; padding: 5px 7px; }
 }
 
 @media (max-width: 480px) {
-  .button-container { gap: 6px; }
+  .button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: min(76vw, 320px);
+  }
 
-  .nav-links li { font-size: 10px; padding: 4px 5px; }
-  .nav-resume  { font-size: 10px; padding: 4px 8px; }
+  .hero-btn {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .nav-brand   { display: none; }
+  .nav-links   { justify-content: center; width: 100%; }
+  .nav-links li { font-size: 11px; padding: 5px 8px; }
 
   .skill-image-container { width: 130px; }
   .skill-fa-icon { font-size: 50px !important; }

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import * as Scroll from "react-scroll"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons"
+import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons"
 
 function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToContact, aboutNav, projectsNav, skillsNav, contactNav, navbar, theme, toggleTheme }) {
     return (
@@ -29,11 +29,8 @@ function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToConta
                     >
                         Resume ↗
                     </a>
-                    <li className="theme-toggle" onClick={toggleTheme}>
-                        <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
-                        <span className="theme-toggle-label">
-                            {theme === 'dark' ? 'Light' : 'Dark'}
-                        </span>
+                    <li className="theme-toggle" onClick={toggleTheme} title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
+                        <FontAwesomeIcon icon={faCircleHalfStroke} />
                     </li>
                 </ul>
             </div>
