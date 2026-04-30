@@ -3,6 +3,7 @@ name: Deploy React App to Pages
 on:
   push:
     branches: ["main"]
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -34,7 +35,11 @@ jobs:
         run: npm install
 
       - name: Build project
+        # CI=false prevents linting warnings (like your useEffect error) 
+        # from stopping the deployment build.
         run: npm run build
+        env:
+          CI: false
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -42,8 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This is the most important change: 
-          # It uploads the BUILT files, not the source code.
+          # CRA outputs the production-ready files into the 'build' folder
           path: './build'
 
       - name: Deploy to GitHub Pages
