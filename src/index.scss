@@ -683,6 +683,8 @@ hr {
   display: flex;
   gap: 12px;
   margin-bottom: 12px;
+
+  .form-floating { flex: 1; }
 }
 
 .contact-me-container {
