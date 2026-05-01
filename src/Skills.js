@@ -7,43 +7,51 @@ import git from "./images/git.png"
 import { motion } from "framer-motion"
 
 const skills = [
-    { name: 'React',       type: 'img', src: reactImg },
-    { name: 'JavaScript',  type: 'img', src: javascript },
-    { name: 'Git',         type: 'img', src: git },
-    { name: 'Python',      type: 'fa',  icon: faPython },
-    { name: 'AWS',         type: 'fa',  icon: faAws },
-    { name: 'Kubernetes',  type: 'url', src: 'https://cdn.simpleicons.org/kubernetes/326CE5' },
-    { name: 'Terraform',   type: 'url', src: 'https://cdn.simpleicons.org/terraform/7B42BC' },
-    { name: 'CI / CD',     type: 'fa',  icon: faInfinity },
-    { name: 'AI / Agentic', type: 'fa', icon: faBrain },
+    { name: 'React',        type: 'img', src: reactImg },
+    { name: 'JavaScript',   type: 'img', src: javascript },
+    { name: 'Python',       type: 'fa',  icon: faPython },
+    { name: 'AWS',          type: 'fa',  icon: faAws },
+    { name: 'Kubernetes',   type: 'url', src: 'https://cdn.simpleicons.org/kubernetes/326CE5' },
+    { name: 'Terraform',    type: 'url', src: 'https://cdn.simpleicons.org/terraform/7B42BC' },
+    { name: 'Git',          type: 'img', src: git },
+    { name: 'CI / CD',      type: 'fa',  icon: faInfinity },
+    { name: 'AI / Agentic', type: 'fa',  icon: faBrain },
 ]
 
-function SkillCard({ name, type, src, icon }) {
+function SkillRow({ name, type, src, icon, index }) {
     return (
-        <div className="skill-image-container">
-            <div className="skill-icon-wrapper">
+        <motion.div
+            className="skill-row"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true }}
+        >
+            <span className="skill-row-name">{name}</span>
+            <span className="skill-row-icon">
                 {type === 'fa'
-                    ? <FontAwesomeIcon icon={icon} className="skill-fa-icon" />
-                    : <img className="skill-image" src={src} alt={name} />
+                    ? <FontAwesomeIcon icon={icon} />
+                    : <img src={src} alt={name} />
                 }
-            </div>
-            <div className="skill">{name}</div>
-        </div>
+            </span>
+        </motion.div>
     )
 }
 
 function Skills() {
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-            viewport={{ once: true }}
             className="skills-wrapper"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true }}
         >
-            <h2 className="section-heading">Skills</h2>
-            <div className="skill-container">
-                {skills.map(skill => <SkillCard key={skill.name} {...skill} />)}
+            <div className="section-label">Skills</div>
+            <div className="skill-list">
+                {skills.map((skill, i) => (
+                    <SkillRow key={skill.name} {...skill} index={i} />
+                ))}
             </div>
         </motion.div>
     )
