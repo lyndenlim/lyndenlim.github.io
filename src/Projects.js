@@ -20,50 +20,99 @@ import hurdle3 from "./images/hurdle3.png"
 import Modal from "react-bootstrap/Modal"
 import Carousel from "react-bootstrap/Carousel"
 import { motion } from "framer-motion"
+import { SECTION_MOTION } from "./constants"
+
+const projects = [
+    {
+        id: 0,
+        title: 'The Inconvenience Store',
+        icon: <FontAwesomeIcon icon={faStore} />,
+        sub: 'React JS / Ruby on Rails / PostgreSQL',
+        bg: inconvenience1,
+        images: [inconvenience1, inconvenience2, inconvenience3, inconvenience4],
+        interval: 15000,
+        carouselClass: 'carousel-dark',
+        description: 'E-commerce store that features your everyday inconvenient items.',
+        github: 'https://github.com/lyndenlim/the-inconvenience-store',
+        live: 'https://the-inconvenience-store.herokuapp.com/',
+    },
+    {
+        id: 1,
+        title: 'Undec¿ded',
+        icon: '¿',
+        sub: 'React JS / Ruby on Rails / PostgreSQL',
+        bg: undecided1,
+        images: [undecided1, undecided2, undecided3, undecided4],
+        interval: 15000,
+        carouselClass: 'carousel-dark',
+        description: 'Restaurant/recipe assistant with randomizer feature that returns a restaurant within a mile radius of your current location.',
+        github: 'https://github.com/lyndenlim/undecided',
+        live: 'https://undecided-application.herokuapp.com/',
+    },
+    {
+        id: 2,
+        title: 'SCHEM△',
+        icon: '△',
+        sub: 'React JS / Ruby on Rails / PostgreSQL',
+        bg: schema1,
+        images: [schema1, schema2, schema3, schema4],
+        interval: 30000,
+        carouselClass: '',
+        description: 'Video viewing and streaming platform that centralizes topics in technology, programming, and science.',
+        github: 'https://github.com/lyndenlim/schema',
+        live: 'https://schema-project.herokuapp.com/',
+    },
+    {
+        id: 3,
+        title: 'Hurdle',
+        icon: 'H',
+        sub: 'React JS',
+        bg: hurdle1,
+        images: [hurdle1, hurdle2, hurdle3],
+        interval: 7000,
+        carouselClass: '',
+        description: 'Inspired by WORDLE. Guess the word in 6 tries, dictionary entry of word appears after game concludes.',
+        github: 'https://github.com/lyndenlim/hurdle',
+        live: 'https://lyndenlim.github.io/hurdle/',
+    },
+]
+
+function ProjectModal({ project, onHide }) {
+    if (!project) return null
+    return (
+        <Modal show onHide={onHide} size="lg">
+            <Modal.Header closeButton>
+                <Modal.Title>{project.title}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="text-center">
+                <Carousel className={project.carouselClass} interval={project.interval}>
+                    {project.images.map((src, i) => (
+                        <Carousel.Item key={src}>
+                            <img className="img-fluid carousel-image" src={src} alt={`${project.title} ${i + 1}`} />
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+                <hr />
+                {project.description}
+                <div className="project-link-container">
+                    <a className="project-link" href={project.github} target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a className="project-link" href={project.live} target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faDesktop} />
+                    </a>
+                </div>
+            </Modal.Body>
+        </Modal>
+    )
+}
 
 function Projects() {
     const [active, setActive] = useState(0)
-    const [modal, setModal] = useState(null)
-
-    const projects = [
-        {
-            id: 0,
-            title: 'The Inconvenience Store',
-            icon: <FontAwesomeIcon icon={faStore} />,
-            sub: 'React JS / Ruby on Rails / PostgreSQL',
-            bg: inconvenience1,
-        },
-        {
-            id: 1,
-            title: 'Undec¿ded',
-            icon: '¿',
-            sub: 'React JS / Ruby on Rails / PostgreSQL',
-            bg: undecided1,
-        },
-        {
-            id: 2,
-            title: 'SCHEM△',
-            icon: '△',
-            sub: 'React JS / Ruby on Rails / PostgreSQL',
-            bg: schema1,
-        },
-        {
-            id: 3,
-            title: 'Hurdle',
-            icon: 'H',
-            sub: 'React JS',
-            bg: hurdle1,
-        },
-    ]
+    const [modalProject, setModalProject] = useState(null)
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-            className="projects-wrapper"
-        >
+        <motion.div {...SECTION_MOTION} className="projects-wrapper">
             <div className="proj-marquee-outer">
                 <div className="proj-marquee-track">
                     {Array(8).fill(null).map((_, i) => (
@@ -90,7 +139,7 @@ function Projects() {
                                     <div className="more-button-container">
                                         <button
                                             className="more-button"
-                                            onClick={(e) => { e.stopPropagation(); setModal(p.id) }}
+                                            onClick={(e) => { e.stopPropagation(); setModalProject(p) }}
                                         >
                                             More
                                         </button>
@@ -103,85 +152,7 @@ function Projects() {
                 ))}
             </div>
 
-            {/* Modals */}
-            <Modal show={modal === 0} onHide={() => setModal(null)} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>The Inconvenience Store</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={{ textAlign: 'center' }}>
-                    <Carousel className="carousel-dark" interval={15000}>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={inconvenience1} alt="inconvenience1" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={inconvenience2} alt="inconvenience2" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={inconvenience3} alt="inconvenience3" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={inconvenience4} alt="inconvenience4" /></Carousel.Item>
-                    </Carousel>
-                    <hr />
-                    E-commerce store that features your everyday inconvenient items.
-                    <div className="project-link-container">
-                        <a className="project-link" href="https://github.com/lyndenlim/the-inconvenience-store" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                        <a className="project-link" href="https://the-inconvenience-store.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
-                    </div>
-                </Modal.Body>
-            </Modal>
-
-            <Modal show={modal === 1} onHide={() => setModal(null)} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>Undec¿ded</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={{ textAlign: 'center' }}>
-                    <Carousel className="carousel-dark" interval={15000}>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={undecided1} alt="undecided1" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={undecided2} alt="undecided2" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={undecided3} alt="undecided3" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={undecided4} alt="undecided4" /></Carousel.Item>
-                    </Carousel>
-                    <hr />
-                    Restaurant/recipe assistant with randomizer feature that returns a restaurant within a mile radius of your current location.
-                    <div className="project-link-container">
-                        <a className="project-link" href="https://github.com/lyndenlim/undecided" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                        <a className="project-link" href="https://undecided-application.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
-                    </div>
-                </Modal.Body>
-            </Modal>
-
-            <Modal show={modal === 2} onHide={() => setModal(null)} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>SCHEM△</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={{ textAlign: 'center' }}>
-                    <Carousel interval={30000}>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={schema1} alt="schema1" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={schema2} alt="schema2" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={schema3} alt="schema3" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={schema4} alt="schema4" /></Carousel.Item>
-                    </Carousel>
-                    <hr />
-                    Video viewing and streaming platform that centralizes topics in technology, programming, and science.
-                    <div className="project-link-container">
-                        <a className="project-link" href="https://github.com/lyndenlim/schema" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                        <a className="project-link" href="https://schema-project.herokuapp.com/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
-                    </div>
-                </Modal.Body>
-            </Modal>
-
-            <Modal show={modal === 3} onHide={() => setModal(null)} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>Hurdle</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={{ textAlign: 'center' }}>
-                    <Carousel interval={7000}>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={hurdle1} alt="hurdle1" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={hurdle2} alt="hurdle2" /></Carousel.Item>
-                        <Carousel.Item><img className="img-fluid carousel-image" src={hurdle3} alt="hurdle3" /></Carousel.Item>
-                    </Carousel>
-                    <hr />
-                    Inspired by WORDLE. Guess the word in 6 tries, dictionary entry of word appears after game concludes.
-                    <div className="project-link-container">
-                        <a className="project-link" href="https://github.com/lyndenlim/hurdle" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                        <a className="project-link" href="https://lyndenlim.github.io/hurdle/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faDesktop} /></a>
-                    </div>
-                </Modal.Body>
-            </Modal>
+            <ProjectModal project={modalProject} onHide={() => setModalProject(null)} />
         </motion.div>
     )
 }

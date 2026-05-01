@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useMemo, useCallback } from "react"
 import * as Scroll from "react-scroll"
 import About from "./About"
 import Projects from "./Projects"
@@ -8,10 +8,10 @@ import NavBar from "./NavBar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
+import { SCROLL_DURATION } from "./constants"
 
 function HomePage() {
     const [showTopButton, setShowTopButton] = useState(false)
-    const [showNavBar, setShowNavBar] = useState(false)
     const [theme, setTheme] = useState('dark')
     const [activeSectionId, setActiveSectionId] = useState('')
     const aboutSection = useRef()
@@ -19,7 +19,10 @@ function HomePage() {
     const skillsSection = useRef()
     const contactSection = useRef()
     const navbar = useRef()
-    const [sections] = useState([aboutSection, projectsSection, skillsSection, contactSection])
+    const sections = useMemo(
+        () => [aboutSection, projectsSection, skillsSection, contactSection],
+        []
+    )
 
     useEffect(() => {
         document.body.className = theme
@@ -33,12 +36,10 @@ function HomePage() {
                     if (navbar.current) navbar.current.classList.add("slide")
                     found = section.current.id
                     setShowTopButton(true)
-                    setShowNavBar(true)
                 }
             })
             if (window.scrollY < 500) {
                 setShowTopButton(false)
-                setShowNavBar(false)
                 found = ''
             }
             setActiveSectionId(found)
@@ -47,19 +48,15 @@ function HomePage() {
         return () => window.removeEventListener("scroll", onScroll)
     }, [sections])
 
-    const scrollToAbout    = () => Scroll.scroller.scrollTo("about",    { smooth: true, duration: 400 })
-    const scrollToProjects = () => Scroll.scroller.scrollTo("projects", { smooth: true, duration: 400 })
-    const scrollToSkills   = () => Scroll.scroller.scrollTo("skills",   { smooth: true, duration: 400 })
-    const scrollToContact  = () => Scroll.scroller.scrollTo("contact",  { smooth: true, duration: 400 })
+    const scrollTo = useCallback((id) => {
+        Scroll.scroller.scrollTo(id, { smooth: true, duration: SCROLL_DURATION })
+    }, [])
 
     return (
         <>
-            {showNavBar &&
+            {showTopButton &&
                 <NavBar
-                    scrollToAbout={scrollToAbout}
-                    scrollToProjects={scrollToProjects}
-                    scrollToSkills={scrollToSkills}
-                    scrollToContact={scrollToContact}
+                    scrollTo={scrollTo}
                     navbar={navbar}
                     theme={theme}
                     activeSectionId={activeSectionId}
@@ -75,10 +72,10 @@ function HomePage() {
                         <h2 id="title">Software Engineer</h2>
                     </div>
                     <div className="button-container">
-                        <button className="hero-btn" onClick={scrollToAbout}><span>About</span></button>
-                        <button className="hero-btn" onClick={scrollToProjects}><span>Portfolio</span></button>
-                        <button className="hero-btn" onClick={scrollToSkills}><span>Skills</span></button>
-                        <button className="hero-btn" onClick={scrollToContact}><span>Contact</span></button>
+                        <button className="hero-btn" onClick={() => scrollTo("about")}><span>About</span></button>
+                        <button className="hero-btn" onClick={() => scrollTo("projects")}><span>Portfolio</span></button>
+                        <button className="hero-btn" onClick={() => scrollTo("skills")}><span>Skills</span></button>
+                        <button className="hero-btn" onClick={() => scrollTo("contact")}><span>Contact</span></button>
                     </div>
                 </div>
                 <div className="scroll-hint">↓ scroll</div>
@@ -108,7 +105,7 @@ function HomePage() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.3 }}
                     className="to-top-button"
-                    onClick={() => Scroll.animateScroll.scrollToTop({ duration: 400 })}
+                    onClick={() => Scroll.animateScroll.scrollToTop({ duration: SCROLL_DURATION })}
                 >
                     <FontAwesomeIcon icon={faArrowUp} />
                 </motion.button>

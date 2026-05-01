@@ -1,18 +1,17 @@
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import * as Scroll from "react-scroll"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons"
+import { RESUME_URL, SCROLL_DURATION } from "./constants"
 
 const navItems = [
-    { label: 'About',     id: 'about',    scrollTo: 'scrollToAbout'    },
-    { label: 'Portfolio', id: 'projects', scrollTo: 'scrollToProjects' },
-    { label: 'Skills',    id: 'skills',   scrollTo: 'scrollToSkills'   },
-    { label: 'Contact',   id: 'contact',  scrollTo: 'scrollToContact'  },
+    { label: 'About',     id: 'about'    },
+    { label: 'Portfolio', id: 'projects' },
+    { label: 'Skills',    id: 'skills'   },
+    { label: 'Contact',   id: 'contact'  },
 ]
 
-function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToContact, navbar, theme, toggleTheme, activeSectionId }) {
-    const scrollFns = { scrollToAbout, scrollToProjects, scrollToSkills, scrollToContact }
-
+function NavBar({ scrollTo, navbar, theme, toggleTheme, activeSectionId }) {
     return (
         <motion.div
             className="nav"
@@ -22,7 +21,7 @@ function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToConta
             ref={navbar}
         >
             <div className="nav-inner">
-                <div className="nav-brand" onClick={() => Scroll.animateScroll.scrollToTop({ duration: 400 })}>
+                <div className="nav-brand" onClick={() => Scroll.animateScroll.scrollToTop({ duration: SCROLL_DURATION })}>
                     Lynden Lim
                 </div>
                 <ul className="nav-links">
@@ -30,7 +29,7 @@ function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToConta
                         <li
                             key={item.id}
                             className={activeSectionId === item.id ? 'active' : ''}
-                            onClick={scrollFns[item.scrollTo]}
+                            onClick={() => scrollTo(item.id)}
                         >
                             {activeSectionId === item.id && (
                                 <motion.div
@@ -44,7 +43,7 @@ function NavBar({ scrollToAbout, scrollToProjects, scrollToSkills, scrollToConta
                     ))}
                     <a
                         className="nav-resume"
-                        href="https://drive.google.com/file/d/1WIChRNkJUiPiXZ6TOQw-7SFxy29jI6g3/view?usp=sharing"
+                        href={RESUME_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                     >

@@ -4,16 +4,11 @@ import { faFileLines, faPaperPlane, faLocationDot, faEnvelope } from "@fortaweso
 import Form from "react-bootstrap/Form"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import { motion } from "framer-motion"
+import { SECTION_MOTION, RESUME_URL } from "./constants"
 
 function Contact() {
     return (
-        <motion.div
-            className="contact-wrapper"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-        >
+        <motion.div {...SECTION_MOTION} className="contact-wrapper">
             <div className="section-label">Contact</div>
 
             <div className="contact-giant">
@@ -48,7 +43,7 @@ function Contact() {
                             <FontAwesomeIcon icon={faGithub} />
                         </a>
                         <a className="contact-social-link"
-                            href="https://drive.google.com/file/d/1WIChRNkJUiPiXZ6TOQw-7SFxy29jI6g3/view?usp=sharing"
+                            href={RESUME_URL}
                             target="_blank" rel="noopener noreferrer" title="Resume">
                             <FontAwesomeIcon icon={faFileLines} />
                         </a>

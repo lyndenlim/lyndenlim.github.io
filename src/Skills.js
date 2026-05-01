@@ -5,6 +5,7 @@ import reactImg from "./images/react.png"
 import javascript from "./images/javascript.png"
 import git from "./images/git.png"
 import { motion } from "framer-motion"
+import { SECTION_MOTION } from "./constants"
 
 const skills = [
     { name: 'React',        type: 'img', src: reactImg },
@@ -40,13 +41,7 @@ function SkillRow({ name, type, src, icon, index }) {
 
 function Skills() {
     return (
-        <motion.div
-            className="skills-wrapper"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-        >
+        <motion.div {...SECTION_MOTION} className="skills-wrapper">
             <div className="section-label">Skills</div>
             <div className="skill-list">
                 {skills.map((skill, i) => (
