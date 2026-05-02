@@ -1,4 +1,4 @@
-export const SCROLL_DURATION = 400
+export const SCROLL_DURATION = 200
 
 export const RESUME_URL = "https://drive.google.com/file/d/1WIChRNkJUiPiXZ6TOQw-7SFxy29jI6g3/view?usp=sharing"
 

@@ -5,27 +5,61 @@ import Projects from "./Projects"
 import Skills from "./Skills"
 import Contact from "./Contact"
 import NavBar from "./NavBar"
+import Cursor from "./Cursor"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
-import { motion } from "framer-motion"
+import { motion, useMotionValue, useSpring, useViewportScroll } from "framer-motion"
 import { SCROLL_DURATION } from "./constants"
+
+function MagneticButton({ children, className, onClick }) {
+    const ref = useRef(null)
+    const x = useMotionValue(0)
+    const y = useMotionValue(0)
+    const springX = useSpring(x, { stiffness: 200, damping: 20 })
+    const springY = useSpring(y, { stiffness: 200, damping: 20 })
+
+    const onMouseMove = e => {
+        const r = ref.current.getBoundingClientRect()
+        x.set((e.clientX - (r.left + r.width  / 2)) * 0.3)
+        y.set((e.clientY - (r.top  + r.height / 2)) * 0.3)
+    }
+    const onMouseLeave = () => { x.set(0); y.set(0) }
+
+    return (
+        <motion.button
+            ref={ref}
+            className={className}
+            style={{ x: springX, y: springY }}
+            onMouseMove={onMouseMove}
+            onMouseLeave={onMouseLeave}
+            onClick={onClick}
+        >
+            {children}
+        </motion.button>
+    )
+}
 
 function HomePage() {
     const [showTopButton, setShowTopButton] = useState(false)
-    const [theme, setTheme] = useState('dark')
+    const [theme, setTheme] = useState(
+        () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    )
     const [activeSectionId, setActiveSectionId] = useState('')
-    const aboutSection = useRef()
+    const aboutSection    = useRef()
     const projectsSection = useRef()
-    const skillsSection = useRef()
-    const contactSection = useRef()
-    const navbar = useRef()
+    const skillsSection   = useRef()
+    const contactSection  = useRef()
+    const navbar          = useRef()
     const sections = useMemo(
         () => [aboutSection, projectsSection, skillsSection, contactSection],
         []
     )
 
+    const { scrollYProgress } = useViewportScroll()
+    const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
+
     useEffect(() => {
-        document.body.className = theme
+        document.body.classList.toggle('light', theme === 'light')
     }, [theme])
 
     useEffect(() => {
@@ -54,6 +88,10 @@ function HomePage() {
 
     return (
         <>
+            <Cursor />
+            <motion.div className="scroll-progress" style={{ scaleX }} />
+            <a href="#about" className="skip-to-content">Skip to content</a>
+
             {showTopButton &&
                 <NavBar
                     scrollTo={scrollTo}
@@ -72,10 +110,10 @@ function HomePage() {
                         <h2 id="title">Software Engineer</h2>
                     </div>
                     <div className="button-container">
-                        <button className="hero-btn" onClick={() => scrollTo("about")}><span>About</span></button>
-                        <button className="hero-btn" onClick={() => scrollTo("projects")}><span>Portfolio</span></button>
-                        <button className="hero-btn" onClick={() => scrollTo("skills")}><span>Skills</span></button>
-                        <button className="hero-btn" onClick={() => scrollTo("contact")}><span>Contact</span></button>
+                        <MagneticButton className="hero-btn" onClick={() => scrollTo("about")}><span>About</span></MagneticButton>
+                        <MagneticButton className="hero-btn" onClick={() => scrollTo("projects")}><span>Portfolio</span></MagneticButton>
+                        <MagneticButton className="hero-btn" onClick={() => scrollTo("skills")}><span>Skills</span></MagneticButton>
+                        <MagneticButton className="hero-btn" onClick={() => scrollTo("contact")}><span>Contact</span></MagneticButton>
                     </div>
                 </div>
                 <div className="scroll-hint">↓ scroll</div>

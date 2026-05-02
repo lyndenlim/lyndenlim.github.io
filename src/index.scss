@@ -32,9 +32,85 @@ body.light {
 
 * { box-sizing: border-box; }
 
+/* ─── Skip to content ───────────────────────────── */
+
+.skip-to-content {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 10px 24px;
+  border-radius: 0 0 8px 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: top 0.2s;
+
+  &:focus { top: 0; }
+}
+
+/* ─── Focus visible ─────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Custom cursor ─────────────────────────────── */
+
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
+
+  .cursor-dot {
+    position: fixed;
+    top: -2px;
+    left: -2px;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    pointer-events: none;
+    z-index: 10001;
+    will-change: transform;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--accent);
+    pointer-events: none;
+    z-index: 10000;
+    will-change: transform;
+  }
+
+}
+
+/* ─── Scroll progress ───────────────────────────── */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left center;
+  z-index: 101;
+  pointer-events: none;
+}
+
 body {
   margin: 0;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg);
@@ -291,7 +367,7 @@ body {
 }
 
 #name {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Bricolage Grotesque', 'Arial Black', sans-serif;
   font-variation-settings: 'opsz' 96, 'wght' 800;
   font-size: clamp(60px, 12.5vw, 160px);
   letter-spacing: -0.03em;
@@ -738,11 +814,8 @@ body {
   padding: 22px 0;
   border-bottom: 1px solid var(--border);
   cursor: default;
-  transition: padding-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
   &:hover {
-    padding-left: 18px;
-
     .skill-row-name { color: var(--accent); }
     .skill-row-icon { color: var(--accent); opacity: 1; }
   }
@@ -877,7 +950,7 @@ body {
   .form-floating { width: 100%; }
 }
 
-.contact-me-body { height: 180px !important; }
+.contact-me-body { height: 180px !important; resize: none; }
 
 .form-control {
   background: var(--input-bg) !important;
@@ -918,6 +991,48 @@ body {
   width: 100%;
 
   &:hover { opacity: 0.8; }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}
+
+.form-feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  gap: 12px;
+}
+
+.form-feedback-icon {
+  font-size: 42px;
+  color: #4db888;
+}
+
+.form-feedback-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-variation-settings: 'opsz' 32, 'wght' 700;
+  font-size: clamp(22px, 2.5vw, 30px);
+  color: var(--text);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.form-feedback-sub {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.form-error-msg {
+  color: #f87171;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 @media (min-width: 760px) {
@@ -940,8 +1055,8 @@ body {
   justify-content: space-between;
   align-items: center;
   font-family: 'Syne', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.22em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-muted);
   transition: background 0.4s ease;
@@ -1034,4 +1149,17 @@ body {
   .scroll-hint { display: none; }
   .nav-brand { display: none; }
   .nav-links { justify-content: center; width: 100%; }
+}
+
+/* ─── Reduced motion ────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .cursor-dot, .cursor-ring, .cursor-spotlight { display: none !important; }
+  * { cursor: auto !important; }
 }

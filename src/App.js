@@ -1,22 +1,15 @@
-import { Route, Routes } from "react-router-dom";
-import HomePage from "./HomePage";
-import About from "./About";
-import Projects from "./Projects";
-import Skills from "./Skills";
-import Contact from "./Contact";
+import { Route, Routes } from "react-router-dom"
+import { MotionConfig } from "framer-motion"
+import HomePage from "./HomePage"
 
 function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="about" element={<About />} />
-        <Route path="projects" element={<Projects />} />
-        <Route path="skills" element={<Skills />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
-    </>
-  );
+    </MotionConfig>
+  )
 }
 
-export default App;
+export default App

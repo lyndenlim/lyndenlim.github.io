@@ -30,6 +30,10 @@ function NavBar({ scrollTo, navbar, theme, toggleTheme, activeSectionId }) {
                             key={item.id}
                             className={activeSectionId === item.id ? 'active' : ''}
                             onClick={() => scrollTo(item.id)}
+                            onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), scrollTo(item.id))}
+                            tabIndex={0}
+                            role="button"
+                            aria-label={`Navigate to ${item.label}`}
                         >
                             {activeSectionId === item.id && (
                                 <motion.div
@@ -49,7 +53,13 @@ function NavBar({ scrollTo, navbar, theme, toggleTheme, activeSectionId }) {
                     >
                         Resume
                     </a>
-                    <li className="theme-toggle" onClick={toggleTheme} title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
+                    <li className="theme-toggle"
+                        onClick={toggleTheme}
+                        onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggleTheme())}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                    >
                         <FontAwesomeIcon icon={faCircleHalfStroke} />
                     </li>
                 </ul>

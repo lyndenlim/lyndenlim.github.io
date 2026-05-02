@@ -88,7 +88,7 @@ function ProjectModal({ project, onHide }) {
                 <Carousel className={project.carouselClass} interval={project.interval}>
                     {project.images.map((src, i) => (
                         <Carousel.Item key={src}>
-                            <img className="img-fluid carousel-image" src={src} alt={`${project.title} ${i + 1}`} />
+                            <img className="img-fluid carousel-image" src={src} alt={`${project.title} ${i + 1}`} loading="lazy" />
                         </Carousel.Item>
                     ))}
                 </Carousel>
@@ -130,6 +130,11 @@ function Projects() {
                         className={`option${active === i ? ' active' : ''}`}
                         style={{ backgroundImage: `url(${p.bg})` }}
                         onClick={() => setActive(i)}
+                        onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), setActive(i))}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={p.title}
+                        aria-expanded={active === i}
                     >
                         <div className="label">
                             <div className="icon">{p.icon}</div>
